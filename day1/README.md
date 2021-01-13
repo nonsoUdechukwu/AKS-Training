@@ -108,3 +108,26 @@ To perform these labs, kindly connect and login to your linux vm on Azure, ssh w
     run the command - ```  docker info ```
 
      ![alt text](../img/docker-info.png "docker info")
+
+16. log into a Docker registry
+    run the command - ```  docker login ```
+
+    ![alt text](../img/docker-login.png "docker login")
+
+17. Build a docker image 
+    *** Open vim editor – *** ``` vi index.py ```
+     ```python
+    from flask import Flask
+    app = Flask(__name__)
+
+    @app.route("/")
+    def hello():
+        return "Welcome to AKS Training “
+
+    if __name__ == "__main__":
+        app.run(host="0.0.0.0", port=int("5000"), debug=True)
+    ```
+
+
+
+     
