@@ -156,8 +156,13 @@ To perform these labs, kindly connect and login to your linux vm on Azure, ssh w
     ![alt text](../img/docker-run3.png "docker run")
 
     Now to confirm let curl the url - ```curl http://localhost:5000 ```
-   
 
+    ![alt text](../img/curl2.png "curl")
+
+18.	Delete the apache image
+    ``` docker stop container-id ```
+    ``` docker rmi -f image-id ```
+    ![alt text](../img/docker-delete.png "docker delete")
 
 
 
