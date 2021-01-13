@@ -148,7 +148,16 @@ To perform these labs, kindly connect and login to your linux vm on Azure, ssh w
     enter "**flask**" and save(**wq!**)
 
     Now build the container -
-    ```sh docker build -t pythonapp . ```  
+    ``` docker build -t pythonapp . ```  
+
+    Run the container
+    ``` docker run -d -p 5000:5000 pythonapp ```
+
+    ![alt text](../img/docker-run3.png "docker run")
+
+    Now to confirm let curl the url - ```curl http://localhost:5000 ```
+   
+
 
 
 
