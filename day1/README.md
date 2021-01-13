@@ -129,7 +129,7 @@ To perform these labs, kindly connect and login to your linux vm on Azure, ssh w
     ```
     **press escape i to edit the file, right click and paste the above python file then press wq! To save and close**
 
-    Crate a docker file
+    Create a docker file
 
     ``` vi Dockerfile ```
     **press escape i to edit the file, right click and paste the below dockerfile  then press wq! To save and close**
@@ -142,6 +142,13 @@ To perform these labs, kindly connect and login to your linux vm on Azure, ssh w
     EXPOSE 5000
     CMD python ./index.py
     ```
+    Finally create the requirements file requirements.txt
+
+    ``` vi requirements.txt ```
+    enter "**flask**" and save(**wq!**)
+
+    Now build the container -
+    ```sh docker build -t pythonapp . ```  
 
 
 
