@@ -172,5 +172,32 @@ To perform these labs, kindly connect and login to your linux vm on Azure, ssh w
 For these labs we will be using a web based platform - [Katacoda](https://www.katacoda.com/courses/kubernetes/playground)
 
 
+1. **Lab 2.1** - Create a redis pod using the imperative and declarative methods
+
+   **Imperative method kubectl**
+   ``` kubectl run redis --image=redis ```
+   ![alt text](../img/kubernetes_imperative_pod.png "kubernetes_Pod")
+
+   **Declarative method**
+
+   ``` vi redis-pod.yaml```
+
+    **press escape i to edit the file, right click and paste the below yaml file  then press wq! To save and close**
+
+    ```YAML
+    apiVersion: v1
+    kind: Pod
+    metadata:
+        name: redis
+    spec:
+        containers:
+        - name: redis
+          image: redis
+    ```
+
+
+
+
+
 
      
