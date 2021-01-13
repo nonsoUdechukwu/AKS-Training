@@ -12,7 +12,7 @@ sudo usermod -aG docker $(whoami)
 
 
 
-#### Lab 1 - Docker
+### Lab 1 - Docker
 To perform these labs, kindly connect and login to your linux vm on Azure, ssh with putty already in your desktop. Run the command – ```  sudo -i ``` To switch to root
 
 1.  What is the version of Docker Server Engine running on the VM?
@@ -166,6 +166,10 @@ To perform these labs, kindly connect and login to your linux vm on Azure, ssh w
 
 
 
+
+### Lab 2 – Kubernetes
+
+For these labs we will be using a web based platform - [Katacoda](https://www.katacoda.com/courses/kubernetes/playground)
 
 
 
