@@ -17,8 +17,7 @@ To perform these labs, kindly connect and login to your linux vm on Azure, ssh w
 
 1.  What is the version of Docker Server Engine running on the VM ?
     run the command - ``` sh docker version ```
-    ``` bash 
-    Client: Docker Engine - Community
+    ``` sh   Client: Docker Engine - Community
  Version:           20.10.2
  API version:       1.41
  Go version:        go1.13.15
