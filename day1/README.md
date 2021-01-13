@@ -198,10 +198,40 @@ For these labs we will be using a web based platform - [Katacoda](https://www.ka
     **Now create the pod using the yaml file**
     ``` kubectl create -f redis-pod.yaml ```
 
-    **Check created pods** ``` kubectl get pods ```
+    **Check created pods** 
+    
+    ``` kubectl get pods ```
 
 
+2. **Lab 2:2** - Create a replicaset of three pods using nginx as your image.
 
+     ``` vi eplica-nginx.yaml```
+
+    **press escape i to edit the file, right click and paste the below yaml file  then press wq! To save and close**
+
+```YAML
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+    tier: frontend
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        tier: frontend
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+```
 
 
      
