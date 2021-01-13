@@ -175,7 +175,8 @@ For these labs we will be using a web based platform - [Katacoda](https://www.ka
 1. **Lab 2.1** - Create a redis pod using the imperative and declarative methods
 
    **Imperative method kubectl**
-   ``` kubectl run redis --image=redis ```
+   ``` kubectl run redis --image=redis ``` --
+
    ![alt text](../img/kubernetes_imperative_pod.png "kubernetes_Pod")
 
    **Declarative method**
@@ -196,6 +197,8 @@ For these labs we will be using a web based platform - [Katacoda](https://www.ka
     ```
     **Now create the pod using the yaml file**
     ``` kubectl create -f redis-pod.yaml ```
+
+    **Check created pods** ``` kubectl get pods ```
 
 
 
