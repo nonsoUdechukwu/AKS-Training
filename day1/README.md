@@ -1,4 +1,4 @@
-# DAY 1 lABS
+# DAY 1 LABS
 
 
 ### Install Docker
