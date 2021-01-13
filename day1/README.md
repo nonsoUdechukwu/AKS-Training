@@ -115,7 +115,7 @@ To perform these labs, kindly connect and login to your linux vm on Azure, ssh w
     ![alt text](../img/docker-login.png "docker login")
 
 17. Build a docker image 
-    _ Open vim editor – _``` vi index.py ```
+    ** Open vim editor ** _``` vi index.py ```
      ```python
     from flask import Flask
     app = Flask(__name__)
@@ -127,7 +127,8 @@ To perform these labs, kindly connect and login to your linux vm on Azure, ssh w
     if __name__ == "__main__":
         app.run(host="0.0.0.0", port=int("5000"), debug=True)
     ```
-    _ press escape i to edit the file, right click and paste the above python file then press wq! To save and close _
+    ** press escape i to edit the file, right click and paste the above python file then press wq! To save and close **
+
 
 
 
