@@ -30,7 +30,7 @@ To perform these labs, kindly connect and login to your linux vm on Azure, ssh w
 3.  Check the number images running on the host 
    
     run the command - ```  docker images ```
-     ![alt text](../img/docker-img.png "docker image")
+    ![alt text](../img/docker-img.png "docker image")
 
 4.  Run a container with the nginx:latest image and name it webapp
     
@@ -38,7 +38,7 @@ To perform these labs, kindly connect and login to your linux vm on Azure, ssh w
 
     ![alt text](../img/docker-output.png "docker image")
 
-      #press ctrl + c to terminate the container
+     #press ctrl + c to terminate the container
 
 5.  Check the number images running on the host 
 
