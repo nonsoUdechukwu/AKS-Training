@@ -18,3 +18,61 @@ To perform these labs, kindly connect and login to your linux vm on Azure, ssh w
 1.  What is the version of Docker Server Engine running on the VM ?
     run the command - ``` sh docker version ```
     ![alt text](../img/docker-version.png "docker version")
+
+2.  Check if any containers are running on the host
+    ``` sh docker ps ```
+    ![alt text](../img/docker-ps.png "docker ps")
+
+3.	Check the number images running on the host 
+    ``` sh docker images ```
+     ![alt text](../img/docker-img.png "docker image")
+
+4.	Run a container with the nginx:latest image and name it webapp
+    ``` sh docker run --name webapp nginx:latest  #press ctrl + c to terminate the container ``` 
+        ![alt text](../img/docker-output.png "docker image")
+
+5.	Check the number images running on the host 
+    ``` sh docker images ```
+     ![alt text](../img/docker-img2.png "docker image")
+
+6.	Check if any containers are running on the host
+      ``` sh docker ps ```
+    ![alt text](../img/docker-ps.png "docker ps")
+
+7.	Check all exited containers
+     ``` sh docker ps -a ```
+    ![alt text](../img/docker-psa.png "docker ps -a")
+
+8.	Start the webapp container again 
+    ``` sh docker start webapp ```
+     ![alt text](../img/docker-start.png "docker start")
+
+9.	Get the containerid of the webapp container and confirm the port number
+    ``` sh docker ps -a ```
+     ![alt text](../img/docker-psa2.png "docker ps -a")
+
+10.	Get the ip address of the webapp
+    ``` sh docker inspect <containerid> | grep “IPAddress” ```
+    ![alt text](../img/docker-inspect.png "docker get ip address")
+
+ 
+11.	Use curl to confirm the webapp container is running. NB this should display a sample nginx  page
+   ``` sh curl 172.17.0.2:80 ```
+   ![alt text](../img/curl-output.png "curl output")
+
+12.	Run another container Apache and terminate with ctl + c
+    ``` sh docker run --name apache httpd ```
+     ![alt text](../img/docker-run2.png "docker run")
+
+13.	Check the number images running on the host 
+    ``` sh docker images  ```
+    ![alt text](../img/docker-img3.png "docker run")
+
+
+14.	Start the webapp container again 
+     ``` sh docker start apache ```
+    ![alt text](../img/docker-start.png "docker start")
+
+15.	Check system-wide information for Docker.
+     ``` sh docker info ```
+     ![alt text](../img/docker-info.png "docker info")
