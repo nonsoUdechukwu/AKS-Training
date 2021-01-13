@@ -205,7 +205,7 @@ For these labs we will be using a web based platform - [Katacoda](https://www.ka
 
 2. **Lab 2:2** - Create a replicaset of three pods using nginx as your image.
 
-     ``` vi eplica-nginx.yaml```
+     ``` vi replica-nginx.yaml```
 
     **press escape i to edit the file, right click and paste the below yaml file  then press wq! To save and close**
 
@@ -233,5 +233,11 @@ spec:
           image: nginx
 ```
 
+**Now create the replicaset using the yaml file**
+    ``` kubectl create -f redis-pod.yaml ```
+
+**Check created pods** 
+    
+``` kubectl get pods ```
 
      
