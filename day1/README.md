@@ -17,4 +17,4 @@ To perform these labs, kindly connect and login to your linux vm on Azure, ssh w
 
 1.  What is the version of Docker Server Engine running on the VM ?
     run the command - ``` sh docker version ```
-    ![alt text](img/docker-version.png "docker version")
+    ![alt text](../img/docker-version.png "docker version")
