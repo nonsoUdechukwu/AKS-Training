@@ -194,7 +194,8 @@ For these labs we will be using a web based platform - [Katacoda](https://www.ka
         - name: redis
           image: redis
     ```
-
+    **Now create the pod using the yaml file**
+    ``` kubectl create -f redis-pod.yaml ```
 
 
 
