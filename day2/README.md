@@ -69,6 +69,6 @@ command.
 
 
 12. Clean up environment. To delete every resource created in Kubernetes for this application, you simply need to delete by the manifest files since everything was created from the file.
-   
+   ``` rm -rf azure-vote.yaml ```
 
 
