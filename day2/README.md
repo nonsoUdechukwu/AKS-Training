@@ -21,3 +21,32 @@ command.
     az aks create --resource-group aks-training --name aks-demo1 --node-count 3 --enableaddons
     monitoring --generate-ssh-keys
     ```
+
+4. Connect to the Azure AKS cluster
+
+     ``` az aks get-credentials --resource-group aks-training --name aks-demo1 ```
+
+
+5. Use kubectl to get the number of nodes on the cluster
+  
+
+   ``` kubectl get nodes```
+
+
+6. Clone the application from github
+
+    ``` git clone https://github.com/nonsoUdechukwu/AKS-Training.git ```
+
+7. Enter inside the application directory and view the yaml file
+   
+   ```
+   cd day2
+   cd sampleapp
+   code azure-vote.yaml
+   ```
+
+    ![alt text](../img/app-deploy-code.png "Azure kuibe App deploy")
+
+8. 
+
+
