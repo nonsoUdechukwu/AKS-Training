@@ -241,7 +241,7 @@ spec:
 ``` kubectl get pods ```
 
      
-3. **Lab 2:2** - Create a deployment of 5 replicasets using nginx as your image.
+3. **Lab 2:3** - Create a deployment of 5 replicasets using nginx as your image.
 
     ``` vi nginx-deployment.yaml```
 ```YAML
@@ -270,3 +270,21 @@ spec:
   ``` kubectl create -f nginx-deployment.yaml ```
 ![alt text](../img/kub-deployment.png "deployment")
 
+4. **Lab 2:4** -Create a service to expose a nginx pod on port 8080.
+
+    ``` vi nginx-deployment.yaml```
+```YAML
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  selector:
+    app: MyApp
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 9376
+```
+``` kubectl create -f service.yaml ```
+![alt text](../img/kub-services.png "deployment")
