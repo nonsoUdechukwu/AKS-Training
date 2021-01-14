@@ -241,3 +241,32 @@ spec:
 ``` kubectl get pods ```
 
      
+3. **Lab 2:2** - Create a deployment of 5 replicasets using nginx as your image.
+
+    ``` vi nginx-deployment.yaml```
+```YAML
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.14.2
+          ports:
+            - containerPort: 80
+```
+  ``` kubectl create -f nginx-deployment.yaml ```
+![alt text](../img/kub-deployment.png "deployment")
+
