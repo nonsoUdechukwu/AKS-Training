@@ -234,7 +234,7 @@ spec:
 ```
 
 **Now create the replicaset using the yaml file**
-    ``` kubectl create -f redis-pod.yaml ```
+    ``` kubectl create -f replica-nginx.yaml ```
 
 **Check created pods** 
     
