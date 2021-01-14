@@ -18,8 +18,7 @@ command.
 
 3. Use the az aks create command to create the AKS cluster. The following example creates a cluster named akstraining with one node, and the --enable-addons monitoring parameter will enable Azure Monitor for containers for this cluster.
     ``` 
-    az aks create --resource-group aks-training --name aks-demo1 --node-count 3 --enableaddons
-    monitoring --generate-ssh-keys
+   az aks create --resource-group aks-training --name aks-demo1 --node-count 3 --enableaddons monitoring --generate-ssh-keys
     ```
 
 4. Connect to the Azure AKS cluster
