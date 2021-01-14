@@ -287,4 +287,6 @@ spec:
       targetPort: 9376
 ```
 ``` kubectl create -f service.yaml ```
-![alt text](../img/kub-services.png "deployment")
+
+
+    ![alt text](../img/kub-services.png "deployment")
