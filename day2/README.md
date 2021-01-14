@@ -39,6 +39,7 @@ command.
 7. Enter inside the application directory and view the yaml file
    
    ```
+   cd AKS-Training
    cd day2
    cd sampleapp
    code azure-vote.yaml
