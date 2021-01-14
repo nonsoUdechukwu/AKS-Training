@@ -45,8 +45,30 @@ command.
    code azure-vote.yaml
    ```
 
-    ![alt text](../img/app-deploy-code.png "Azure kuibe App deploy")
+    ![alt text](../img/app-deploy-code.png "Azure kube App deploy")
 
-8. 
+8. Create the application
+   
+   ``` kubectl create -f azure-vote.yaml ```
+
+9. Check the progress of the application creation –
+   
+   ```
+   kubectl get pods --watch
+   kubectl get pods
+   ```
+
+10. To get the public address of the load balancer type the command
+   
+   ```
+   kubectl get service azure-vote-front --watch
+   ```
+   ![alt text](../img/app-deploy-code2.png "Azure kuibe App deploy")
+
+11. Note the external IP and type it in a browser
+
+
+12. Clean up environment. To delete every resource created in Kubernetes for this application, you simply need to delete by the manifest files since everything was created from the file.
+   
 
 
