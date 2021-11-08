@@ -78,7 +78,7 @@ To perform these labs, kindly connect and login to your linux vm on Azure (https
     ![alt text](../img/docker-inspect.png "docker get ip address")
 
  
-11. Use curl to confirm the webapp container is running.# This would display a sample page
+11. Use curl to confirm the webapp container is running.# This would display a sample   page
 
     run the command -```  curl 172.17.0.2:80 ```
 
