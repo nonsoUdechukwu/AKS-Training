@@ -78,7 +78,7 @@ To perform these labs, kindly connect and login to your linux vm on Azure (https
     ![alt text](../img/docker-inspect.png "docker get ip address")
 
  
-11. Use curl to confirm the webapp container is running.# This would display a sample   page
+11. Use curl to confirm the webapp container is running.# This would display a sample page
 
     run the command -```  curl 172.17.0.2:80 ```
 
@@ -186,15 +186,15 @@ To perform these labs, kindly connect and login to your linux vm on Azure (https
 
 3. **Create Master Node - This will have a public IP**
 
-   ``` az vm create -g "CustomKubeCluster" -n "kube-master" --image "UbuntuLTS" --size Standard_B2s --data-disk-sizes-gb 10  --admin-username "Demouser" --admin-password "Demouser@123" --public-ip-address-dns-name kubeadm-master```  
+   ``` az vm create -g "CustomKubeCluster" -n "kube-master" --image "UbuntuLTS" --size Standard_B2s --data-disk-sizes-gb 10  --admin-username "demouser" --admin-password "Demouser@123" --public-ip-address-dns-name kubeadm-master```  
 
 4. **Create the two worker nodes - This will have a public IP** 
 
-   ``` az vm create -g "CustomKubeCluster" -n "kube-worker-1" --image "UbuntuLTS" --size Standard_B2s --data-disk-sizes-gb 10  --admin-username "Demouser" --admin-password "Demouser@123" --public-ip-address-dns-name kubeadm-worker-1```  
+   ``` az vm create -g "CustomKubeCluster" -n "kube-worker-1" --image "UbuntuLTS" --size Standard_B2s --data-disk-sizes-gb 10  --admin-username "demouser" --admin-password "Demouser@123" --public-ip-address-dns-name kubeadm-worker-1```  
 
    
 
-    ``` az vm create -g "CustomKubeCluster" -n "kube-worker-2" --image "UbuntuLTS" --size Standard_B2s --data-disk-sizes-gb 10  --admin-username "Demouser" --admin-password "Demouser@123" --public-ip-address-dns-name kubeadm-worker-2```  
+    ``` az vm create -g "CustomKubeCluster" -n "kube-worker-2" --image "UbuntuLTS" --size Standard_B2s --data-disk-sizes-gb 10  --admin-username "demouser" --admin-password "Demouser@123" --public-ip-address-dns-name kubeadm-worker-2```  
 
 5. **Next step is to install docker and kubeadm on all of the nodes. Kindly SSH using Putty into all nodes all run the same set of commands.** 
   ```sudo apt update```
