@@ -196,14 +196,16 @@ To perform these labs, kindly connect and login to your linux vm on Azure (https
 
     ``` az vm create -g "CustomKubeCluster" -n "kube-worker-2" --image "UbuntuLTS" --size Standard_B2s --data-disk-sizes-gb 10  --admin-username "demouser" --admin-password "Demouser@123" --public-ip-address-dns-name kubeadm-worker-2```  
 
-5. **Install Packages** 
+5. **Install Packages - Master and worker nodes** 
+
+
   ```cat <<EOF | sudo tee /etc/modules-load.d/containerd.conf overlay  br_netfilter EOF```
   ```sudo modprobe overlay```
   ```sudo modprobe br_netfilter ```
   ```cat <<EOF | sudo tee /etc/sysctl.d/99-kubernetes-cri.conf net.bridge.bridge-nf-call-iptables = 1 net.ipv4.ip_forward = 1 net.bridge.bridge-nf-call-ip6tables = 1 EOF ```
 
   ```sudo sysctl --system ```
-  
+
 6. **install containerd**
 
     ```sudo apt-get update && sudo apt-get install -y containerd``` 
@@ -235,7 +237,7 @@ To perform these labs, kindly connect and login to your linux vm on Azure (https
     #### Turn off automatic updates
     ``` sudo apt-mark hold kubelet kubeadm kubectl ```
 
-9. **Initailze Kubeadm cluster**
+9. **Initailze Kubeadm cluster -- Master only**
 
     ``` sudo kubeadm init --pod-network-cidr 192.168.0.0/16 ```
 10. **Set kubectl access**
@@ -258,10 +260,12 @@ To perform these labs, kindly connect and login to your linux vm on Azure (https
 
     ``` kubectl get pods -n kube-system ```
 
-14. **Join the worker nodes to the Cluster**
+14. **Join the worker nodes to the Cluster - master nodee**
+
   ```kubeadm token create --print-join-command ```
 
   #### In worker nodes, paste the kubeadm join command to join the cluster
+
   ``` sudo kubeadm join <join command from previous command>```
 
 #### confirm the nodes on the master
