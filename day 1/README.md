@@ -196,40 +196,72 @@ To perform these labs, kindly connect and login to your linux vm on Azure (https
 
     ``` az vm create -g "CustomKubeCluster" -n "kube-worker-2" --image "UbuntuLTS" --size Standard_B2s --data-disk-sizes-gb 10  --admin-username "demouser" --admin-password "Demouser@123" --public-ip-address-dns-name kubeadm-worker-2```  
 
-5. **Next step is to install docker and kubeadm on all of the nodes. Kindly SSH using Putty into all nodes all run the same set of commands.** 
-  ```sudo apt update```
-6. **Install Docker**
+5. **Install Packages** 
+  ```cat <<EOF | sudo tee /etc/modules-load.d/containerd.conf overlay  br_netfilter EOF```
+  ```sudo modprobe overlay```
+  ```sudo modprobe br_netfilter ```
+  ```cat <<EOF | sudo tee /etc/sysctl.d/99-kubernetes-cri.conf net.bridge.bridge-nf-call-iptables = 1 net.ipv4.ip_forward = 1 net.bridge.bridge-nf-call-ip6tables = 1 EOF ```
 
-    ```sudo apt install docker.io -y ``` 
-    ```sudo systemctl enable docker ```
-7. **Get the gpg keys for Kubeadm**
-  ```curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add ```
-  ```sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"```
-8. **Install Kubeadm**
+  ```sudo sysctl --system ```
+6. **install containerd**
 
-    ```sudo apt install kubeadm -y ```
+    ```sudo apt-get update && sudo apt-get install -y containerd``` 
+    #### Inside the /etc folder, create a configuration file for containerd and generate the default configuration file
 
-9. **Initailze Kubeadm**
+    ```sudo mkdir -p /etc/containerd ```
+    ```sudo containerd config default | sudo tee /etc/containerd/config.toml ```
+    #### Now restart containerd to ensure new configuration file usage 
+    ``` sudo systemctl restart containerd ```
 
-    ``` sudo kubeadm init ```
-10. **Copy conf file to .kube directory for current user**
+    #### Disable swap
+    ```sudo swapoff -a ```
+    ``` sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab ```
+
+    #### install dependency packages
+    ```sudo apt-get update && sudo apt-get install -y apt-transport-https curl ```
+    ```curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add - ```
+    #### Add kubernetes repository list
+    ``` cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list deb https://apt.kubernetes.io/ kubernetes-xenial main EOF ```
+
+    ### update packages
+    ```sudo apt-get update ```
+
+7. **Install Kubeadm, kubelet and kubectl - kubeadm: The command to bootstrap the cluster. kubelet: The component that runs on all of the machines in your cluster and does things like starting pods and containers. kubectl: The command line util to talk to your cluster.**
+
+
+    ``` sudo apt-get install -y kubelet=1.20.1-00 kubeadm=1.20.1-00 kubectl=1.20.1-00 ```
+
+    #### Turn off automatic updates
+    ``` sudo apt-mark hold kubelet kubeadm kubectl ```
+
+9. **Initailze Kubeadm cluster**
+
+    ``` sudo kubeadm init --pod-network-cidr 192.168.0.0/16 ```
+10. **Set kubectl access**
 
     ```mkdir $HOME/.kube```
-    ```sudo cp /etc/kubernetes/admin.conf $HOME/.kube/config```
-11. **Change ownership of file to current user and group**
-
-    ```sudo chown $(id -u):$(id -g) $HOME/.kube/config```
-
-12. **Now run the join command on the worker nodes**
-
-    ```sudo kubeadm join 172.X.X.X:6443   --token tvbvra.fpp8fXXXXXqn9w  --discovery-token-ca-cert-hash sha256:e61c2bb32f435f7be6fec9f7XXXXc5520e0e2a6385eX9298251238c ```
-
-13. **Install Weave Network(Weave Net provides a network to connect all pods together, implementing the Kubernetes model. Kubernetes uses the Container Network Interface (CNI) to join pods onto Weave Net. Kubernetes implements many network features itself on top of the pod network.)**
+    ```sudo cp -I /etc/kubernetes/admin.conf $HOME/.kube/config```
+    ```sudo chown $(id -u):$(id -g) $HOME/.kube/config ```
 
 
-    ```kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')" ```
+11. **Test access to cluster**
 
-14. **Check if pods are running**
+    ```kubectl version ```
+
+12. **Install Calico Network Add-On(Calico provides a simple, high-performance, secure networking. Calico is trusted by the major cloud providers, with EKS, AKS, GKE, and IKS all having integrated Calico as part of their offerings.)**
+
+
+    ```kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml ```
+
+13. **Check if pods are running**
 
     ``` kubectl get pods -n kube-system ```
 
+14. **Join the worker nodes to the Cluster**
+  ```kubeadm token create --print-join-command ```
+
+  #### In worker nodes, paste the kubeadm join command to join the cluster
+  ``` sudo kubeadm join <join command from previous command>```
+
+#### confirm the nodes on the master
+``` kubectl get nodes ```
