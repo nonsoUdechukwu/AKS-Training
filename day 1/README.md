@@ -225,7 +225,9 @@ To perform these labs, kindly connect and login to your linux vm on Azure (https
     ```curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add - ```
     #### Add kubernetes repository list
     ``` cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list ```
+
     ```deb https://apt.kubernetes.io/ kubernetes-xenial main ```
+    
     ``` EOF ```
 
     ### update packages
