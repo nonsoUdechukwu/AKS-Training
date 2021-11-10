@@ -1,0 +1,18 @@
+## Blog Info
+wordpressUsername: wpadmiN
+wordpressPassword: password
+wordpressEmail: sunny@example.com
+wordpressFirstName: Sunny
+wordpressLastName: Day
+wordpressBlogName: Sunny’s Blog!
+
+## Database Settings
+externalDatabase:
+  host: mydemoserver.mysql.database.azure.com
+  user: myadmin
+  password: password
+  database: wpdatabase
+
+## Disabling MariaDB
+mariadb:
+  enabled: false

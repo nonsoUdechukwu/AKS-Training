@@ -1,5 +1,0 @@
-ghostHost: "ghost.example.com"
-ghostEmail: "email@example.com"
-ghostUsername: "admin"
-ghostPassword: "mySecurePassword123!!"
-mariadb.mariadbRootPassword: "secretpassword"
