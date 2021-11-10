@@ -109,9 +109,13 @@ command.
 
    ```helm repo add bitnami https://charts.bitnami.com/bitnami  ```
 
+
+   ```helm repo update ```
+
 9. Now that we have access to the Bitnami repository, use helm to install the WordPress chart under the name myblog, using values.yaml as configuration file:
    
-   ```helm install --name myblog -f /helm/values.yaml stable/wordpress ```
+
+   ```helm install myblog -f values.yaml bitnami/wordpress  ```
 
 10. After the installation is complete, a service named myblog-wordpress is created within your Kubernetes cluster. This may take a few minutes before the container is ready and the  External-IP information is available. To check the status of this service and retrieve its external IP address, run:
         ```kubectl get services ```
