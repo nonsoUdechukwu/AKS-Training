@@ -23,7 +23,7 @@ command.
 
 4. Connect to the Azure AKS cluster
 
-     ``` az aks get-credentials --resource-group aks-training --name aks-demo1 ```
+     ``` az aks get-credentials --resource-group aks-training --name aks-demo1 --admin ```
 
 
 5. Use kubectl to get the number of nodes on the cluster
